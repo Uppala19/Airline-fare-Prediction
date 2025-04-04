@@ -8,4 +8,4 @@ This project aims to predict airline ticket fares based on various factors such 
  This script handles data preprocessing tasks such as missing value imputation, encoding categorical variables (e.g., airline, 
  cabin class), and feature engineering. It also includes steps to convert timestamps and calculate additional features like days until departure and flight duration.
  This Scripts contains the graphs such as scatter plot,box plot,bar graphs ,heat map,line graph and some other graphs to show the relation ship between features.
-The newly updated files contains the script for building ML models for linear regtression,decision tree,random forest ,xg boost  methods
+# The newly updated files contains the script for building ML models for linear regtression,decision tree,random forest ,xg boost  methods
