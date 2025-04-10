@@ -12,7 +12,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 from datetime import datetime
 
 # --- STREAMLIT APP ---
-st.set_page_config(page_title="Flight Fare Predictor2", page_icon="✈️", layout="wide")  # MOVE THIS TO THE TOP!
+st.set_page_config(page_title="Flight Fare Predictor", page_icon="✈️", layout="wide")  # MOVE THIS TO THE TOP!
 
 # Custom CSS for styling
 st.markdown("""
