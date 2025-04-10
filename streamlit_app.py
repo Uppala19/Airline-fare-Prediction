@@ -277,7 +277,7 @@ if data is not None:
     st.title("✈️ Flight Fare Prediction App")
 
     if page == "Model Evaluation":
-        st.header("Evaluate the Prediction Model")
+        st.header("Evaluate the Prediction Model2")
         st.markdown("See how well the model performs on unseen data.")
 
         # Info box for model evaluation
