@@ -11,7 +11,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import LabelEncoder
 
 # GitHub URL for the dataset
-github_url = "https://raw.githubusercontent.com/hemanth18-web/dp-ml/refs/heads/main/Updated_Flight_Fare_Data%20(20).csv"
+github_url = "Updated_Flight_Fare_Data-_23_.csv"
 
 # Function to load the dataset from GitHub
 @st.cache_data
