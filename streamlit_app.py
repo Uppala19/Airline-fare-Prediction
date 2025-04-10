@@ -261,7 +261,7 @@ if data is not None:
 
     @st.cache_resource  # Use cache_resource for models
     def train_model(X_train, y_train):
-        model = RandomForestRegressor(n_estimators=100, random_state=42)
+        model = RandomForestRegressor(random_state=100)
         model.fit(X_train, y_train)
         return model
 
@@ -297,12 +297,12 @@ if data is not None:
         with col2:
             st.metric("R^2 Score", f"{r2:.2f}")
 
-        st.subheader("Mutual Importance")
+        st.subheader("Top  10 Features Based on Mutual Information")
         feature_importance = pd.Series(random_forest_model.feature_importances_, index=X.columns).sort_values(ascending=False)
-        fig_feature_importance, ax_feature_importance = plt.subplots(figsize=(10, 6))
-        feature_importance.plot(kind='bar', ax=ax_feature_importance, color="#39A7FF")
-        ax_feature_importance.set_title("Mutual Importance")
-        ax_feature_importance.set_ylabel("Importance Score")
+        fig_feature_importance, ax_feature_importance = plt.subplots(figsize=(10, 8))
+        feature_importance.plot(kind='bar', ax=ax_feature_importance, color= sns.color_palette("colorblind"))
+        ax_feature_importance.set_title("Top  10 Features Based on Mutual Information")
+        ax_feature_importance.set_ylabel("MI Score")
         st.pyplot(fig_feature_importance)
 
     elif page == "Prediction":
