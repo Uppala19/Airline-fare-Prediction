@@ -298,12 +298,18 @@ if data is not None:
             st.metric("R^2 Score", f"{r2:.2f}")
 
         st.subheader("Top  10 Features Based on Mutual Information")
-        feature_importance = pd.Series(random_forest_model.feature_importances_, index=X.columns).sort_values(ascending=False)
-        fig_feature_importance, ax_feature_importance = plt.subplots(figsize=(10, 8))
-        feature_importance.plot(kind='bar', ax=ax_feature_importance, color= sns.color_palette("colorblind"))
-        ax_feature_importance.set_title("Top  10 Features Based on Mutual Information")
-        ax_feature_importance.set_ylabel("MI Score")
-        st.pyplot(fig_feature_importance)
+        feature_importance = pd.Series(random_forest_model.feature_importances_, index=X.columns).sort_values(ascending=False).head(10)
+
+        sns.set_style("white")
+        fig_feature_importance, ax_feature_importance = plt.subplots(figsize=(10, 6))
+        feature_importance.plot(kind='bar', ax=ax_feature_importance, color=sns.color_palette("Set2"))
+        ax_feature_importance.set_title("Top 10 Features Based on Mutual Information", fontsize=16, weight='bold')
+        ax_feature_importance.set_ylabel("MI Score", fontsize=12)
+        ax_feature_importance.set_xlabel("Features", fontsize=12)
+        ax_feature_importance.tick_params(axis='x', rotation=45)
+        ax_feature_importance.grid(False)
+       sns.despine(ax=ax_feature_importance)
+       st.pyplot(fig_feature_importance)
          
          
 
