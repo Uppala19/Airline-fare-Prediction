@@ -7,3 +7,5 @@ scikit-learn
 openpyxl
 xgboost 
 holidays
+
+https://airline-fare-prediction-erreezvsvkamsajztpjlej.streamlit.app/
