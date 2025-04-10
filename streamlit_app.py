@@ -298,12 +298,30 @@ if data is not None:
             st.metric("R^2 Score", f"{r2:.2f}")
 
         st.subheader("Top  10 Features Based on Mutual Information")
-        feature_importance = pd.Series(random_forest_model.feature_importances_, index=X.columns).sort_values(ascending=False)
-        fig_feature_importance, ax_feature_importance = plt.subplots(figsize=(10, 8))
-        feature_importance.plot(kind='bar', ax=ax_feature_importance, color= sns.color_palette("colorblind"))
-        ax_feature_importance.set_title("Top  10 Features Based on Mutual Information")
-        ax_feature_importance.set_ylabel("MI Score")
-        st.pyplot(fig_feature_importance)
+       mi = mutual_info_regression(X, y)
+mi_series = pd.Series(mi, index=X.columns).sort_values(ascending=False)
+print("🔹 Top Features based on Mutual Information:\n", mi_series.head(10))
+
+# Plot Mutual Information Scores
+plt.figure(figsize=(10, 8))
+colors = sns.color_palette("colorblind")  # Get the colorblind palette
+ax = mi_series.head(10).plot(kind='bar', color=colors)  # Apply the colors
+
+
+# Title and labels
+plt.title("Top  10 Features Based on Mutual Information", fontsize=14,fontweight="bold")
+plt.xlabel("Features", fontsize=14)
+plt.ylabel("MI Score", fontsize=14)
+
+# Annotate the values on top of the bars
+for i, v in enumerate(mi_series.head(10)):
+    ax.text(i, v + 0.02, f'{v:.2f}', ha='center', va='bottom', fontsize=14, color='black')
+plt.xticks(fontsize=14)
+plt.yticks(fontsize=14)
+plt.grid(False)
+# Show the plot
+plt.tight_layout()
+plt.show()
 
     elif page == "Prediction":
         st.header("Predict Your Flight Fare")
