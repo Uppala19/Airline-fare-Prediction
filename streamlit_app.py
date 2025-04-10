@@ -306,7 +306,7 @@ if data is not None:
         ax_feature_importance.set_title("Top 10 Features Based on Mutual Information", fontsize=16, weight='bold')
         ax_feature_importance.set_ylabel("MI Score", fontsize=12)
         ax_feature_importance.set_xlabel("Features", fontsize=12)
-        ax_feature_importance.tick_params(axis='x', rotation=45)
+        ax_feature_importance.tick_params(axis='x', rotation=90)
         ax_feature_importance.grid(False)
         sns.despine(ax=ax_feature_importance)
         st.pyplot(fig_feature_importance)
