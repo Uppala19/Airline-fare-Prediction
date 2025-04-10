@@ -298,7 +298,7 @@ if data is not None:
             st.metric("R^2 Score", f"{r2:.2f}")
 
         st.subheader("Top  10 Features Based on Mutual Information")
-         mi = mutual_info_regression(X, y)
+         
          mi_series = pd.Series(mi, index=X.columns).sort_values(ascending=False)
       print("🔹 Top Features based on Mutual Information:\n", mi_series.head(10))
 
