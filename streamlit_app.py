@@ -420,24 +420,24 @@ if data is not None:
 
         # Price vs Number of Stops (Customized)
         st.subheader("Price vs Number of Stops (Customized)")
-       filtered_data = data[(data['Price'] >= 0) & (data['Total_Stops'] >= 0)]
-       fig_scatter_custom, ax_scatter_custom = plt.subplots(figsize=(10, 6))
-       scatter = ax_scatter_custom.scatter(
-       filtered_data['Price'],
-       filtered_data['Total_Stops'],
-       s=80,
-       alpha=0.7,
-       c=filtered_data['Price'],
-       cmap='viridis',
-       edgecolors='black'
+        filtered_data = data[(data['Price'] >= 0) & (data['Total_Stops'] >= 0)]
+        fig_scatter_custom, ax_scatter_custom = plt.subplots(figsize=(10, 6))
+        scatter = ax_scatter_custom.scatter(
+        filtered_data['Price'],
+        filtered_data['Total_Stops'],
+        s=80,
+        alpha=0.7,
+        c=filtered_data['Price'],
+        cmap='viridis',
+        edgecolors='black'
 )
 
-       ax_scatter_custom.set_title('Price vs Number of Stops', fontsize=14, fontweight='bold')
-       ax_scatter_custom.set_xlabel('Price', fontsize=12)
-       ax_scatter_custom.set_ylabel('Number of Stops', fontsize=12)
-       ax_scatter_custom.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.7)
-       fig_scatter_custom.colorbar(scatter, label='Price')
-       st.pyplot(fig_scatter_custom)
+        ax_scatter_custom.set_title('Price vs Number of Stops', fontsize=14, fontweight='bold')
+        ax_scatter_custom.set_xlabel('Price', fontsize=12)
+        ax_scatter_custom.set_ylabel('Number of Stops', fontsize=12)
+        ax_scatter_custom.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.7)
+        fig_scatter_custom.colorbar(scatter, label='Price')
+        st.pyplot(fig_scatter_custom)
 
 
         # Airline Distribution (Styled)
