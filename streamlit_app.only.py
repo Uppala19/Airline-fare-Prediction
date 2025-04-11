@@ -1,4 +1,16 @@
 import streamlit as st
+import streamlit as st
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import requests
+import io
+import re  # Import the regular expression module
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+from datetime import datetime
 # --- STREAMLIT APP ---
 st.set_page_config(page_title="Flight Fare Predictor", page_icon="✈️", layout="wide")  # MOVE THIS TO THE TOP!
 
