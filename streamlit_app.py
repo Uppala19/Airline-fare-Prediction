@@ -257,7 +257,7 @@ if data is not None:
 
     X = model_data.drop(['Price'], axis=1, errors='ignore')
     y = model_data['Price']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=100)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=100)
 
     @st.cache_resource  # Use cache_resource for models
     def train_model(X_train, y_train):
@@ -331,7 +331,7 @@ if data is not None:
         unique_airlines = data['Airline'].unique().tolist()
         unique_sources = data['Source'].unique().tolist()
         unique_destinations = data['Destination'].unique().tolist()
-        unique_cabin_classes = data['Cabin_Class'].unique().tolist()
+       # unique_cabin_classes = data['Cabin_Class'].unique().tolist()
 
         # Input fields using columns for layout
         col1, col2 = st.columns(2)
@@ -340,7 +340,7 @@ if data is not None:
             destination = st.selectbox("Destination", options=unique_destinations, help="Select the destination city")
             airline = st.selectbox("Airline", options=unique_airlines, help="Select the airline")
             stops = st.slider("Number of Stops", min_value=0, max_value=5, value=0, help="Number of layovers")
-            cabin_class = st.selectbox("Cabin Class", options=unique_cabin_classes, help="Select the cabin class")
+            #cabin_class = st.selectbox("Cabin Class", options=unique_cabin_classes, help="Select the cabin class")
 
         with col2:
             # Use date_input for journey date
@@ -365,7 +365,7 @@ if data is not None:
                 'Airline': [list(airline_mapping.keys())[list(airline_mapping.values()).index(airline)]],
                 'Source': [list(source_mapping.keys())[list(source_mapping.values()).index(source)]],
                 'Destination': [list(destination_mapping.keys())[list(destination_mapping.values()).index(destination)]],
-                'Cabin_Class': [list(cabin_class_mapping.keys())[list(cabin_class_mapping.values()).index(cabin_class)]]
+                #'Cabin_Class': [list(cabin_class_mapping.keys())[list(cabin_class_mapping.values()).index(cabin_class)]]
             })
 
             # Ensure all columns from training data are present in input data
