@@ -412,13 +412,6 @@ if data is not None:
         plt.tight_layout()
         st.pyplot(fig_airline)
 
-        # Price vs. Number of Stops
-        st.subheader("Price vs. Number of Stops")
-        fig_scatter, ax_scatter = plt.subplots(figsize=(10, 6))
-        sns.scatterplot(x="Price", y="Total_Stops",s=80, data=data,c="Price", alpha=0.7,color='viridis',edgecolor="black)
-        st.colorbar(label="Price")
-        st.pyplot(fig_scatter)
-
         # Price Distribution
         st.subheader("Price Distribution")
         fig_hist, ax_hist = plt.subplots(figsize=(10, 6))
