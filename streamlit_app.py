@@ -404,7 +404,6 @@ if data is not None:
            tick.set_rotation(45)
            tick.set_horizontalalignment('right')
         ax_airline.grid(False)
-        ax_airline.grid(axis='y', linestyle='--', alpha=0.7)
         ax_airline.set_title("Flight Counts by Airline", fontsize=16, fontweight='bold')
         ax_airline.set_xlabel("Airline", fontsize=12)
         ax_airline.set_ylabel("Number of Flights", fontsize=12)
@@ -416,7 +415,7 @@ if data is not None:
         # Price vs. Number of Stops
         st.subheader("Price vs. Number of Stops")
         fig_scatter, ax_scatter = plt.subplots(figsize=(10, 6))
-        sns.scatterplot(x="Price", y="Total_Stops", data=data, ax=ax_scatter, alpha=0.7)
+        sns.scatterplot(x="Price", y="Total_Stops",s=80, data=data, alpha=0.7,color='viridis',edgecolor="black)
         st.pyplot(fig_scatter)
 
         # Price Distribution
