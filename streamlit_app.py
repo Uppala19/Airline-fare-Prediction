@@ -257,7 +257,7 @@ if data is not None:
 
     X = model_data.drop(['Price'], axis=1, errors='ignore')
     y = model_data['Price']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=100)
 
     @st.cache_resource  # Use cache_resource for models
     def train_model(X_train, y_train):
@@ -398,8 +398,15 @@ if data is not None:
         # Airline Distribution
         st.subheader("Airline Distribution")
         fig_airline, ax_airline = plt.subplots(figsize=(10, 6))
-        sns.countplot(x="Airline", data=data, ax=ax_airline, palette="viridis", order=data['Airline'].value_counts().index)
-        ax_airline.tick_params(axis='x', rotation=90)
+        sns.countplot(x="Airline", data=data, ax=ax_airline, palette="muted", order=data['Airline'].value_counts().index)
+        ax_airline.tick_params(axis='x', rotation=45)
+        ax_airline.grid(axis='y', linestyle='--', alpha=0.7)
+        ax_airline.set_title("Flight Counts by Airline", fontsize=16, fontweight='bold')
+        ax_airline.set_xlabel("Airline", fontsize=12)
+        ax_airline.set_ylabel("Number of Flights", fontsize=12)
+        for container in ax_airline.containers:
+            ax_airline.bar_label(container, fmt='%d', label_type='edge', fontsize=9)
+        plt.tight_layout()
         st.pyplot(fig_airline)
 
         # Price vs. Number of Stops
