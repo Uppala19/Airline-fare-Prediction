@@ -440,17 +440,6 @@ if data is not None:
         st.pyplot(fig_scatter_custom)
 
 
-        # Airline Distribution (Styled)
-        st.subheader("Airline Distribution (Styled)")
-        fig_countplot, ax_countplot = plt.subplots(figsize=(10, 6))
-        sns.countplot(x="Airline", data=data, hue="Airline", palette="muted", legend=False, ax=ax_countplot)
-        ax_countplot.set_title("✈️ Airline Distribution ✈️", fontweight="bold", fontsize=14, color="#80aaff")
-        ax_countplot.set_xlabel("Airline")
-        ax_countplot.set_ylabel("Count")
-        ax_countplot.tick_params(axis='x', rotation=90, labelsize=8)
-        fig_countplot.tight_layout()
-        st.pyplot(fig_countplot)
-
         # Ticket Price Trends Over Time
         st.subheader("Ticket Price Trends Over Time")
         fig_lineplot, ax_lineplot = plt.subplots(figsize=(10, 6))
