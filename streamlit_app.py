@@ -466,7 +466,7 @@ if data is not None:
             st.warning("Column 'Days_Until_Departure' not found in the data. Skipping this plot.")
 
         # Price Distribution by Cabin Class (Customized)
-        st.subheader("Price Distribution by Cabin Class (Customized)")
+        st.subheader("Price Distribution by Cabin Class  along with airlines (Customized)")
         sns.set(style="whitegrid")
         fig_boxplot_cabin, ax_boxplot_cabin = plt.subplots(figsize=(10, 8))
         sns.boxplot(x="Cabin_Class", y="Price", data=data, palette="Set1", hue="Airline", ax=ax_boxplot_cabin)
@@ -498,6 +498,7 @@ if data is not None:
         ax_boxplot_airline.set_xlabel("Airline ", fontsize=12)
         ax_boxplot_airline.set_ylabel("Price", fontsize=12)
         ax_boxplot_airline.tick_params(axis='x', rotation=90)
+        ax_boxplot_airline.grid(False)
         fig_boxplot_airline.tight_layout()
         st.pyplot(fig_boxplot_airline)
 else:
