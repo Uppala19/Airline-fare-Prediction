@@ -400,7 +400,7 @@ if data is not None:
         fig_airline, ax_airline = plt.subplots(figsize=(10, 8))
         sns.countplot(x="Airline", data=data, ax=ax_airline, palette="muted", order=data['Airline'].value_counts().index)
         ax_airline.tick_params(axis='x', labelsize=10)
-       for tick in ax_airline.get_xticklabels():
+        for tick in ax_airline.get_xticklabels():
            tick.set_rotation(45)
            tick.set_horizontalalignment('right')
         ax_airline.grid(False)
