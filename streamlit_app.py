@@ -399,7 +399,7 @@ if data is not None:
         st.subheader("Airline Distribution")
         fig_airline, ax_airline = plt.subplots(figsize=(10, 8))
         sns.countplot(x="Airline", data=data, ax=ax_airline, palette="muted", order=data['Airline'].value_counts().index)
-        ax_airline.tick_params(axis='x', rotation=45)
+        ax_airline.tick_params(axis='x', rotation=45,ha='right')
         ax_airline.grid(False)
         ax_airline.grid(axis='y', linestyle='--', alpha=0.7)
         ax_airline.set_title("Flight Counts by Airline", fontsize=16, fontweight='bold')
