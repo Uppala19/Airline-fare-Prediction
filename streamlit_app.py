@@ -223,8 +223,14 @@ if data is not None:
     data["Date_of_Journey"] = pd.to_datetime(data["Date_of_Journey"], errors="coerce")
     data["Journey_Day"] = data["Date_of_Journey"].dt.day
     data["Journey_Month"] = data["Date_of_Journey"].dt.month
+
+    # Drop Cabin_Class early in the process, if it exists
+    if 'Cabin_Class' in data.columns:
+        data.drop('Cabin_Class', axis=1, inplace=True, errors='ignore')
+
     # Remove columns with any NaN values
     data = data.dropna(axis=1, how="any")
+
     # Create mappings for encoding
     airline_mapping = dict(enumerate(data["Airline"].astype("category").cat.categories))
     source_mapping = dict(enumerate(data["Source"].astype("category").cat.categories))
@@ -248,7 +254,7 @@ if data is not None:
             st.error(f"Could not convert column '{col}' to numeric.  Please investigate.")
             st.stop()
 
-    # Drop Cabin_Class from model_data if it exists
+    # Drop Cabin_Class from model_data if it exists (again, for safety)
     if 'Cabin_Class' in model_data.columns:
         model_data.drop('Cabin_Class', axis=1, inplace=True, errors='ignore')
 
