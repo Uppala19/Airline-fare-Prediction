@@ -35,18 +35,6 @@ st.markdown(
         font-size: 3em;
         font-weight: bold;
     }
-    /* Sidebar styling */
-    .stSidebar {
-        background-color: #FFFFFF;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    }
-    .stSidebar h2 {
-        color: #39A7FF;
-        margin-bottom: 30px;
-        font-size: 1.8em;
-    }
     /* Input elements styling */
     .stSelectbox, .stSlider, .stDateInput {
         margin-bottom: 25px;
@@ -287,11 +275,6 @@ if data is not None:
         return model
 
     random_forest_model = train_model(X_train, y_train)  # Train the model
-
-    # --- Sidebar for navigation ---
-    with st.sidebar:
-        st.title("Flight Fare Prediction")
-        st.markdown("Enter your flight details to get an estimated fare.")
 
     # --- Main App Content ---
     st.title("✈️ Flight Fare Prediction App")
