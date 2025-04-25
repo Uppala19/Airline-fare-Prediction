@@ -269,15 +269,15 @@ if data is not None:
     # --- Sidebar for navigation ---
     with st.sidebar:
         st.title("Flight Fare Prediction")
-        st.markdown("Explore flight data and predict fares.")
-        page = st.radio("Choose a section:", ["Model Evaluation", "Prediction", "Data Exploration"])  # Changed the order here
-
+     #   st.markdown("Explore flight data and predict fares.")
+      #  page = st.radio("Choose a section:", ["Model Evaluation", "Prediction", "Data Exploration"])  # Changed the order here
+         page = st.radio( "Prediction")
     # --- Main App Content ---
     st.title("✈️ Flight Fare Prediction App")
 
-    if page == "Model Evaluation":
-        st.header("Evaluate the Prediction Model")
-        st.markdown("See how well the model performs on unseen data.")
+   # if page == "Model Evaluation":
+    #    st.header("Evaluate the Prediction Model")
+     #   st.markdown("See how well the model performs on unseen data.")
 
         # Info box for model evaluation
       #  st.markdown("""
