@@ -127,8 +127,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # GitHub URL for the dataset
-# github_url = "https://raw.githubusercontent.com/Uppala19/Airline-fare-Prediction/refs/heads/main/Updated_Flight_Fare_Data-_23_.csv"
-github_url = "https://github.com/Uppala19/Airline-fare-Prediction/blob/main/updated_dataset.csv"
+github_url = "https://raw.githubusercontent.com/Uppala19/Airline-fare-Prediction/refs/heads/main/updated_dataset.csv"
+# github_url = "https://github.com/Uppala19/Airline-fare-Prediction/blob/main/updated_dataset.csv"
 # Function to load the dataset from GitHub
 @st.cache_data
 def load_data_from_github(url):
