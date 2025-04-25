@@ -320,12 +320,12 @@ if data is not None:
         st.markdown("Enter your flight details below to get an estimated fare.")
 
         # Info boxes for guidance
-        st.markdown("""
-            <div class="info-box">
-                <h3>Flight Details</h3>
-                <p>Provide information about your desired flight to get an accurate prediction.</p>
-            </div>
-        """, unsafe_allow_html=True)
+      #  st.markdown("""
+       #     <div class="info-box">
+        #        <h3>Flight Details</h3>
+         #       <p>Provide information about your desired flight to get an accurate prediction.</p>
+         #   </div>
+       # """, unsafe_allow_html=True)
 
         # Get unique values for selectboxes
         unique_airlines = data['Airline'].unique().tolist()
