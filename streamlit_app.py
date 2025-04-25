@@ -270,7 +270,7 @@ if data is not None:
     with st.sidebar:
        st.title("Flight Fare Prediction")
        st.markdown("Explore flight data and predict fares.")
-        page = st.radio("Choose a section:", ["Model Evaluation", "Prediction",])  # Changed the order here
+       page = st.radio("Choose a section:", ["Model Evaluation", "Prediction",])  # Changed the order here
          
     # st.title("Airline Fare Prediction")
     # --- Main App Content ---
