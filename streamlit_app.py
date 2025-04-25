@@ -272,6 +272,7 @@ if data is not None:
      #   st.markdown("Explore flight data and predict fares.")
       #  page = st.radio("Choose a section:", ["Model Evaluation", "Prediction", "Data Exploration"])  # Changed the order here
        #  page = st.radio( "Prediction")
+    st.title("Airline Fare Prediction")
     # --- Main App Content ---
     st.title("✈️ Flight Fare Prediction App")
 
@@ -314,7 +315,7 @@ if data is not None:
 
 
 
-    if page == "Prediction":
+    #if page == "Prediction":
         st.header("Predict Your Flight Fare")
         st.markdown("Enter your flight details below to get an estimated fare.")
 
