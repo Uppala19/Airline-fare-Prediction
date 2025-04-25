@@ -261,6 +261,21 @@ if data is not None:
     @st.cache_resource  # Use cache_resource for models
     def train_model(X_train, y_train):
         model = RandomForestRegressor(random_state=100)
+        param_dist = {
+        'n_estimators': [150, 200, 250],
+        'max_depth': [10, 20, 30],
+        'min_samples_split': [2, 5, 10]
+}            
+        random_search = RandomizedSearchCV(
+      estimator=rf,
+      param_distributions=param_dist,
+      n_iter=5,               # Try 5 random combinations (not 3, adjusted for better coverage)
+      cv=3,                   # 3-fold cross-validation
+      scoring='r2',           # Use 'accuracy' for classification
+      random_state=100,       # Reproducibility
+      n_jobs=-1,              # Use all CPU cores
+      verbose=1               # Show progress
+)
         model.fit(X_train, y_train)
         return model
 
