@@ -291,26 +291,26 @@ if data is not None:
     # --- Main App Content ---
     st.title("✈️ Flight Fare Prediction App")
 
-   # if page == "Model Evaluation":
-    #    st.header("Evaluate the Prediction Model")
-     #   st.markdown("See how well the model performs on unseen data.")
+    if page == "Model Evaluation":
+        st.header("Evaluate the Prediction Model")
+        st.markdown("See how well the model performs on unseen data.")
 
         # Info box for model evaluation
-      #  st.markdown("""
-       #     <div class="info-box">
-        #        <h3>Model Performance</h3>
-         #       <p>Understand the accuracy and reliability of the flight fare prediction model.</p>
-          #  </div>
-       # """, unsafe_allow_html=True)
+        st.markdown("""
+            <div class="info-box">
+                <h3>Model Performance</h3>
+                <p>Understand the accuracy and reliability of the flight fare prediction model.</p>
+            </div>
+        """, unsafe_allow_html=True)
 
-       # y_pred = random_forest_model.predict(X_test)
-       # mse = mean_squared_error(y_test, y_pred)
-       # r2 = r2_score(y_test, y_pred)
-       # col1, col2 = st.columns(2)
-       # with col1:
-        #    st.metric("Mean Squared Error", f"{mse:.2f}")
-       # with col2:
-        #    st.metric("R^2 Score", f"{r2:.2f}")
+        y_pred = random_forest_model.predict(X_test)
+        mse = mean_squared_error(y_test, y_pred)
+        r2 = r2_score(y_test, y_pred)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("Mean Squared Error", f"{mse:.2f}")
+        with col2:
+            st.metric("R^2 Score", f"{r2:.2f}")
 
       #  st.subheader("Top  10 Features Based on Mutual Information")
       #  feature_importance = pd.Series(random_forest_model.feature_importances_, index=X.columns).sort_values(ascending=False).head(10)
