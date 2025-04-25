@@ -127,8 +127,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # GitHub URL for the dataset
-github_url = "https://raw.githubusercontent.com/Uppala19/Airline-fare-Prediction/refs/heads/main/Updated_Flight_Fare_Data-_23_.csv"
-
+# github_url = "https://raw.githubusercontent.com/Uppala19/Airline-fare-Prediction/refs/heads/main/Updated_Flight_Fare_Data-_23_.csv"
+github_url = "https://github.com/Uppala19/Airline-fare-Prediction/blob/main/updated_dataset.csv"
 # Function to load the dataset from GitHub
 @st.cache_data
 def load_data_from_github(url):
@@ -257,7 +257,7 @@ if data is not None:
 
     X = model_data.drop(['Price'], axis=1, errors='ignore')
     y = model_data['Price']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=100)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=100)
 
     @st.cache_resource  # Use cache_resource for models
     def train_model(X_train, y_train):
