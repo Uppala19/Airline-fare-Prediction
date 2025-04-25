@@ -267,12 +267,12 @@ if data is not None:
     random_forest_model = train_model(X_train, y_train)  # Train the model
 
     # --- Sidebar for navigation ---
-    with st.sidebar:
-        st.title("Flight Fare Prediction")
+   # with st.sidebar:
+    #    st.title("Flight Fare Prediction")
      #   st.markdown("Explore flight data and predict fares.")
       #  page = st.radio("Choose a section:", ["Model Evaluation", "Prediction", "Data Exploration"])  # Changed the order here
-       #  page = st.radio( "Prediction")
-    st.title("Airline Fare Prediction")
+         page = st.radio( "Prediction")
+    # st.title("Airline Fare Prediction")
     # --- Main App Content ---
     st.title("✈️ Flight Fare Prediction App")
 
