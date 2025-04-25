@@ -377,21 +377,21 @@ if data is not None:
             predicted_fare = random_forest_model.predict(input_data)[0]
             st.success(f"Predicted Flight Fare: ₹{predicted_fare:.2f}")
 
-    elif page == "Data Exploration":
-        st.header("Explore the Flight Data")
-        st.markdown("Dive into the dataset to understand flight patterns and pricing trends.")
+  #  elif page == "Data Exploration":
+   #     st.header("Explore the Flight Data")
+    #    st.markdown("Dive into the dataset to understand flight patterns and pricing trends.")
 
         # Info box for data exploration
-        st.markdown("""
-            <div class="info-box">
-                <h3>Data Insights</h3>
+#        st.markdown("""
+ #           <div class="info-box">
+  #              <h3>Data Insights</h3>
                 
-            </div>
-        """, unsafe_allow_html=True)
+   #         </div>
+    #    """, unsafe_allow_html=True)
 
         # Display the dataframe
-        st.subheader("Raw Data")
-        st.dataframe(data.head(10))
+     #   st.subheader("Raw Data")
+      #  st.dataframe(data.head(10))
 
        
 else:
