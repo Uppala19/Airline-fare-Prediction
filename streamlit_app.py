@@ -229,13 +229,13 @@ if data is not None:
     airline_mapping = dict(enumerate(data["Airline"].astype("category").cat.categories))
     source_mapping = dict(enumerate(data["Source"].astype("category").cat.categories))
     destination_mapping = dict(enumerate(data["Destination"].astype("category").cat.categories))
-    cabin_class_mapping = dict(enumerate(data["Cabin_Class"].astype("category").cat.categories))
+    # cabin_class_mapping = dict(enumerate(data["Cabin_Class"].astype("category").cat.categories)) # Remove cabin class mapping
     # Create a copy of the data for the model, where we'll encode
     model_data = data.copy()
     # Encode the categorical columns in the model data
     for col, mapping in zip(
-        ["Airline", "Source", "Destination", "Cabin_Class"],
-        [airline_mapping, source_mapping, destination_mapping, cabin_class_mapping],
+        ["Airline", "Source", "Destination"],  # Removed Cabin_Class
+        [airline_mapping, source_mapping, destination_mapping],  # Removed cabin_class_mapping
     ):
         model_data[col] = model_data[col].map(
             lambda x: list(mapping.keys())[list(mapping.values()).index(x)]
@@ -247,6 +247,11 @@ if data is not None:
         except ValueError:
             st.error(f"Could not convert column '{col}' to numeric.  Please investigate.")
             st.stop()
+
+    # Drop Cabin_Class from model_data if it exists
+    if 'Cabin_Class' in model_data.columns:
+        model_data.drop('Cabin_Class', axis=1, inplace=True, errors='ignore')
+
     X = model_data.drop(["Price"], axis=1, errors="ignore")
     y = model_data["Price"]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=100)
@@ -286,7 +291,7 @@ if data is not None:
     unique_airlines = data["Airline"].unique().tolist()
     unique_sources = data["Source"].unique().tolist()
     unique_destinations = data["Destination"].unique().tolist()
-    unique_cabin_classes = data["Cabin_Class"].unique().tolist()
+    # unique_cabin_classes = data["Cabin_Class"].unique().tolist() # Remove cabin class
 
     # Input fields using columns for layout
     col1, col2 = st.columns(2)
@@ -297,7 +302,7 @@ if data is not None:
         )
         airline = st.selectbox("Airline", options=unique_airlines, help="Select the airline")
         stops = st.slider("Number of Stops", min_value=0, max_value=5, value=0, help="Number of layovers")
-        cabin_class = st.selectbox("Cabin Class", options=unique_cabin_classes, help="Select the cabin class")
+        # cabin_class = st.selectbox("Cabin Class", options=unique_cabin_classes, help="Select the cabin class") # Remove cabin class
 
     with col2:
         # Use date_input for journey date
@@ -325,9 +330,9 @@ if data is not None:
                 "Destination": [
                     list(destination_mapping.keys())[list(destination_mapping.values()).index(destination)]
                 ],
-                "Cabin_Class": [
-                    list(cabin_class_mapping.keys())[list(cabin_class_mapping.values()).index(cabin_class)]
-                ],
+                # "Cabin_Class": [
+                #     list(cabin_class_mapping.keys())[list(cabin_class_mapping.values()).index(cabin_class)]
+                # ], # Remove cabin class
             }
         )
 
@@ -335,6 +340,10 @@ if data is not None:
         for col in X_train.columns:
             if col not in input_data.columns:
                 input_data[col] = 0
+
+        # Remove Cabin_Class from input_data if it exists
+        if 'Cabin_Class' in input_data.columns:
+            input_data.drop('Cabin_Class', axis=1, inplace=True, errors='ignore')
 
         input_data = input_data[X_train.columns]
 
