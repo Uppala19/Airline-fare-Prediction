@@ -315,7 +315,7 @@ if data is not None:
 
 
 
-    #if page == "Prediction":
+    if page == "Prediction":
         st.header("Predict Your Flight Fare")
         st.markdown("Enter your flight details below to get an estimated fare.")
 
